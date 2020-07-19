@@ -32,5 +32,10 @@
             "url": "https://github.com/afashio/yii2-images"
         }
       ],
+    "autoload": {
+        "psr-4": {
+            "afashio\\pages\\": "src"
+        }
+    },
     "minimum-stability": "stable"
 }
