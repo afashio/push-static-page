@@ -6,7 +6,7 @@
         "klisl/yii2-languages": "^2.8",
         "dmstr/yii2-adminlte-asset": "^2.1",
         "creocoder/yii2-translateable": "^1.0",
-        "notgosu/yii2-meta-tag-module": "^2.0.0",
+        "notgosu/yii2-meta-tag-module": "dev-single_language_widget",
         "costa-rico/yii2-images": "1.2.0",
         "vova07/yii2-imperavi-widget": "^2.0",
         "kartik-v/yii2-widget-fileinput": "^1.0"
