@@ -22,5 +22,15 @@
             "email": "push.webstudio@gmail.com"
         }
     ],
+     "repositories": [
+        {
+            "type": "github",
+            "url": "https://github.com/afashio/yii2-meta-tag-module"
+        },
+        {
+            "type": "github",
+            "url": "https://github.com/afashio/yii2-images"
+        }
+      ],
     "minimum-stability": "stable"
 }
