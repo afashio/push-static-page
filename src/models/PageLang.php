@@ -1,6 +1,6 @@
 <?php
 
-namespace afashio\page\models;
+namespace afashio\pages\models;
 
 use \Yii;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace afashio\page\models;
+namespace afashio\pages\models;
 
 use common\traits\BasicStatusTrait;
 use common\traits\ModelTranslationTrait;
@@ -8,17 +8,16 @@ use creocoder\translateable\TranslateableBehavior;
 use notgosu\yii2\modules\metaTag\components\MetaTagBehavior;
 use Yii;
 use yii\helpers\Url;
+use common\models\Language;
 
 /**
  * This is the model class for table "page".
  *
  * @property int        $id
  * @property int        $status
- * @property int        $sort
  * @property int        $is_main
  * @property string     $slug
  * @property string     $title
- * @property string     $text
  * @mixin TranslateableBehavior
  * @mixin MetaTagBehavior
  * @mixin \rico\yii2images\behaviors\ImageBehave
@@ -43,7 +42,7 @@ class Page extends \yii\db\ActiveRecord
     /**
      * @param $slug
      *
-     * @return \common\models\Page|null
+     * @return \afashio\pages\models\Page|null
      */
     public static function findBySlug($slug)
     {
