@@ -10,7 +10,7 @@
         "costa-rico/yii2-images": "1.2.0",
         "vova07/yii2-imperavi-widget": "^2.0",
         "kartik-v/yii2-widget-fileinput": "^1.0",
-        "afashio/push-helpers": "^0.0.1"
+        "afashio/push-helpers": "dev-master"
     }
     ,
     "require-dev": {
