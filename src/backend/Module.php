@@ -1,6 +1,6 @@
 <?php
 
-namespace afashio\pages\frontend;
+namespace afashio\pages\backend;
 
 /**
  * page module definition class
@@ -10,7 +10,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public $controllerNamespace = 'afashio\pages\frontend\controllers';
+    public $controllerNamespace = 'afashio\pages\backend\controllers';
 
     /**
      * {@inheritdoc}
