@@ -2,13 +2,13 @@
 
 namespace afashio\pages\models;
 
-use common\traits\BasicStatusTrait;
-use common\traits\ModelTranslationTrait;
+use afashio\pushHelpers\traits\BasicStatusTrait;
+use afashio\pushHelpers\traits\ModelTranslationTrait;
 use creocoder\translateable\TranslateableBehavior;
 use notgosu\yii2\modules\metaTag\components\MetaTagBehavior;
 use Yii;
 use yii\helpers\Url;
-use common\models\Language;
+use afashio\language\models\Language;
 
 /**
  * This is the model class for table "page".

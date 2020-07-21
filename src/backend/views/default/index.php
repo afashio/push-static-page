@@ -4,7 +4,7 @@ use yii\grid\GridView;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\search\PageSearch */
+/* @var $searchModel \afashio\pages\search\PageSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('app', 'Статические страницы');
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'title',
                         'value' => static function ($model) {
-                            /** @var \common\models\Page $model */
+                            /** @var \afashio\pages\models\Page $model */
 
                             return $model->getTitle();
                         },
@@ -35,9 +35,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'status',
                         'format' => 'raw',
-                        'filter' => \common\models\Page::status_list(),
+                        'filter' => \afashio\pages\models\Page::status_list(),
                         'value' => static function ($model) {
-                            /** @var \common\models\Page $model */
+                            /** @var \afashio\pages\models\Page $model */
                             $model->status === 1 ? $iconClass = 'glyphicon glyphicon-ok'
                                 : $iconClass = 'glyphicon glyphicon-minus';
 
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'slug',
                         'format' => 'url',
                         'value' => static function ($model) {
-                            /** @var \common\models\Page $model */
+                            /** @var \afashio\pages\models\Page $model */
                             return $model->slug === 'index'
                                 ?
                                 Yii::$app->params['domainName']
@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'Да',
                         ],
                         'value' => static function ($model) {
-                            /** @var \common\models\Page $model */
+                            /** @var \afashio\pages\models\Page $model */
                             return $model->is_main === 1 ?
                                 Html::tag('i', '', ['class' => 'glyphicon glyphicon-ok'])
                                 : '';

@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Page */
+/* @var $model \afashio\pages\models\Page */
 
 $this->title = $model->translate(Yii::$app->language)->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Статические страницы'), 'url' => ['index']];
@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'status',
                     'format' => 'raw',
                     'value' => static function ($model) {
-                        /** @var \common\models\Page $model */
+                        /** @var \afashio\pages\models\Page $model */
                         $model->status === 1 ? $iconClass = 'glyphicon glyphicon-ok'
                             : $iconClass = 'glyphicon glyphicon-minus';
 
@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'is_main',
                     'format' => 'raw',
                     'value' => static function ($model) {
-                        /** @var \common\models\Page $model */
+                        /** @var \afashio\pages\models\Page $model */
                         $model->is_main === 1 ? $iconClass = 'glyphicon glyphicon-ok'
                             : $iconClass = 'glyphicon glyphicon-minus';
 

@@ -2,8 +2,8 @@
 
 namespace afashio\pages\backend\controllers;
 
-use common\models\Page;
-use common\models\search\PageSearch;
+use afashio\pages\models\Page;
+use afashio\pages\search\PageSearch;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 use yii\web\Controller;

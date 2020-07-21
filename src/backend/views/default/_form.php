@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Page */
+/* @var $model \afashio\pages\models\Page */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -22,7 +22,7 @@ use yii\widgets\ActiveForm;
                     <?= Yii::t('app', 'Галерея'); ?>
                 </a>
             </li>
-            <? foreach (\common\models\Language::languageList() as $language): ?>
+            <? foreach (\afashio\language\models\Language::languageList() as $language): ?>
                 <li role="presentation"><a data-toggle="tab" href="#<?= $language->slug; ?>"><?= $language->name; ?></a>
                 </li>
             <? endforeach; ?>
@@ -34,7 +34,7 @@ use yii\widgets\ActiveForm;
                         ['maxlength' => true, 'readonly' => isset($model->id)]
                     ) ?>
 
-                    <?= $form->field($model, 'status')->dropDownList(\common\models\Page::status_list()) ?>
+                    <?= $form->field($model, 'status')->dropDownList(\afashio\pages\models\Page::status_list()) ?>
 
                     <?= $form->field($model, 'is_main')->checkbox() ?>
 
@@ -51,10 +51,10 @@ use yii\widgets\ActiveForm;
                             ],
                             'pluginOptions' => [
                                 'initialPreview' =>
-                                    \common\utils\ImageUtil::getImageUrls($model)
+                                    \afashio\pushHelpers\utils\ImageUtil::getImageUrls($model)
                                 ,
                                 'initialPreviewConfig' =>
-                                    \common\utils\PreviewUtil::getPreviewOptions(
+                                    \afashio\pushHelpers\utils\PreviewUtil::getPreviewOptions(
                                         \yii\helpers\Url::to(['site/delete-image']),
                                         $model->getImages()
                                     ),
@@ -88,7 +88,7 @@ use yii\widgets\ActiveForm;
                 </div>
             </div>
 
-            <? foreach (\common\models\Language::languageList() as $language): ?>
+            <? foreach (\afashio\language\models\Language::languageList() as $language): ?>
                 <div role="tabpanel" class="tab-pane" id="<?= $language->slug; ?>">
                     <div class="box-body">
                         <?= $form->field($model->translate($language->slug), "[$language->slug]title")->textInput(); ?>

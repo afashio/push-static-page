@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Page */
+/* @var $model \afashio\pages\models\Page */
 
 $this->title = Yii::t('app', 'Обновить страницу: ') . $model->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Статические страницы'), 'url' => ['index']];
