@@ -3,13 +3,15 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model \afashio\pages\models\Page */
-/* @var $form yii\widgets\ActiveForm */
+/**
+ * @var yii\web\View               $this
+ * @var \afashio\pages\models\Page $model
+ * @var yii\widgets\ActiveForm     $form
+ */
 ?>
 
 <div class="page-form box box-primary">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin() ?>
     <div class="box-body table-responsive">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active">
@@ -19,13 +21,13 @@ use yii\widgets\ActiveForm;
             </li>
             <li role="presentation">
                 <a data-toggle="tab" href="#image" href="#">
-                    <?= Yii::t('app', 'Галерея'); ?>
+                    <?= Yii::t('app', 'Галерея') ?>
                 </a>
             </li>
-            <? foreach (\afashio\language\models\Language::languageList() as $language): ?>
-                <li role="presentation"><a data-toggle="tab" href="#<?= $language->slug; ?>"><?= $language->name; ?></a>
+            <?php foreach (\afashio\language\models\Language::languageList() as $language): ?>
+                <li role="presentation"><a data-toggle="tab" href="#<?= $language->slug ?>"><?= $language->name ?></a>
                 </li>
-            <? endforeach; ?>
+            <?php endforeach; ?>
         </ul>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane active" id="common">
@@ -65,7 +67,7 @@ use yii\widgets\ActiveForm;
                             'pluginEvents' => [
                                 'filesorted' => 'function(event, params) { 
                                 $.ajax({
-                                     url: "'.\yii\helpers\Url::to(['page/update-order']).'",
+                                     url: "' . \yii\helpers\Url::to(['page/update-order']) . '",
                                      type: "get",
                                      data: { 
                                      previewId:params.stack[params.newIndex].key, 
@@ -84,12 +86,12 @@ use yii\widgets\ActiveForm;
                                 }',
                             ],
                         ]
-                    ); ?>
+                    ) ?>
                 </div>
             </div>
 
-            <? foreach (\afashio\language\models\Language::languageList() as $language): ?>
-                <div role="tabpanel" class="tab-pane" id="<?= $language->slug; ?>">
+            <?php foreach (\afashio\language\models\Language::languageList() as $language): ?>
+                <div role="tabpanel" class="tab-pane" id="<?= $language->slug ?>">
                     <div class="box-body">
                         <?= $form->field($model->translate($language->slug), "[$language->slug]title")->textInput(); ?>
 
@@ -103,17 +105,19 @@ use yii\widgets\ActiveForm;
                                     'plugins' => [
                                         'fullscreen',
                                         'imagemanager',
+                                        'table',
                                     ],
                                 ],
                             ]
-                        );; ?>
-
+                        ) ?>
+                        <h3 class="box-title">SEO</h3>
+                        <hr>
                         <?= \notgosu\yii2\modules\metaTag\widgets\metaTagForm\Widget::widget(
                             ['model' => $model, 'language' => $language->slug]
-                        ); ?>
+                        ) ?>
                     </div>
                 </div>
-            <? endforeach; ?>
+            <?php endforeach ?>
             <div class="box-footer">
                 <?= Html::submitButton(Yii::t('app', 'Сохранить'), ['class' => 'btn btn-success btn-flat']) ?>
             </div>
