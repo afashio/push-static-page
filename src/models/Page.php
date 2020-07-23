@@ -14,15 +14,17 @@ use yii\web\NotFoundHttpException;
 /**
  * This is the model class for table "page".
  *
- * @property int        $id
- * @property int        $status
- * @property int        $is_main
- * @property string     $slug
- * @property string     $title
+ * @property int                                  $id
+ * @property int                                  $status
+ * @property int                                  $is_main
+ * @property string                               $slug
+ * @property string                               $title
  * @mixin TranslateableBehavior
  * @mixin MetaTagBehavior
  * @mixin \rico\yii2images\behaviors\ImageBehave
- * @property PageLang[] $translations
+ * @mixin \afashio\pages\models\PageLang
+ * @property-read string                          $url
+ * @property PageLang[]                           $translations
  */
 class Page extends \yii\db\ActiveRecord
 {
@@ -46,7 +48,7 @@ class Page extends \yii\db\ActiveRecord
      * @return \afashio\pages\models\Page|null
      * @throws \yii\web\NotFoundHttpException
      */
-    public function getMainPage(): ?self
+    public static function getMainPage(): ?self
     {
         $page = self::findOne(['is_main' => 1]);
         if (!$page) {
