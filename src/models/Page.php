@@ -9,6 +9,7 @@ use notgosu\yii2\modules\metaTag\components\MetaTagBehavior;
 use Yii;
 use yii\helpers\Url;
 use afashio\language\models\Language;
+use yii\web\NotFoundHttpException;
 
 /**
  * This is the model class for table "page".
@@ -37,6 +38,21 @@ class Page extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'page';
+    }
+
+    /**
+     * Returns main page
+     *
+     * @return \afashio\pages\models\Page|null
+     * @throws \yii\web\NotFoundHttpException
+     */
+    public function getMainPage(): ?self
+    {
+        $page = self::findOne(['is_main' => 1]);
+        if (!$page) {
+            throw new NotFoundHttpException();
+        }
+        return $page;
     }
 
     /**
